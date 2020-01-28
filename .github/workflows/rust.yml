@@ -8,10 +8,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Github clone
-        run: echo "test"
-      - name: Github clone
-        run: git clone https://${{ secrets.GITHUB_TOKEN }}:x-oauth-basic@github.com/Journaudb/fblog.git
+        with:
+          repository: Journaudb/fblog.git
+          token: ${{ secrets.ACCESS_TOKEN }}
       - name: Build
         run: cargo build --verbose
         working-directory: ./fblog
