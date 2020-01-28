@@ -8,7 +8,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
+      - name: Github clone
+        run: echo "test"
+      - name: Github clone
+        run: git clone https://${{ secrets.GITHUB_TOKEN }}@$Journaudb/fblog.git
       - name: Build
         run: cargo build --verbose
+        working-directory: ./fblog
       - name: Run tests
         run: cargo test --verbose
+        working-directory: ./fblog
